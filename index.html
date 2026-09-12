@@ -287,6 +287,9 @@ auth.languageCode='ar';
 const db=getFirestore(app);
 const provider=new GoogleAuthProvider();
 provider.setCustomParameters({prompt:'select_account'});
+/* يُضبط مرة واحدة عند التحميل، عشان ما نكسر إشارة الضغط في سفاري */
+setPersistence(auth,browserLocalPersistence).catch(()=>{});
+const RFLAG='pnu-1448-redirecting';
 
 let user=null, ref=null, cache=null;
 let lastState;
@@ -308,19 +311,18 @@ function msg(e){
 window.CLOUD={
   state:undefined,
   get user(){return user;},
-  async signIn(){
-    try{
-      try{ await setPersistence(auth,browserLocalPersistence); }catch(e){}
-      await signInWithPopup(auth,provider);
-      return {ok:true};
-    }catch(e){
+  signIn(){
+    /* بدون await قبل فتح النافذة، وإلا سفاري يمنعها */
+    return signInWithPopup(auth,provider).then(()=>({ok:true})).catch(async e=>{
       const c=e&&e.code;
-      if(c==='auth/popup-blocked'||c==='auth/operation-not-supported-in-this-environment'||c==='auth/popup-closed-by-user'){
+      if(c==='auth/popup-closed-by-user'||c==='auth/cancelled-popup-request') return {ok:false};
+      if(c==='auth/popup-blocked'||c==='auth/operation-not-supported-in-this-environment'){
+        try{ sessionStorage.setItem(RFLAG,'1'); }catch(e3){}
         try{ await signInWithRedirect(auth,provider); return {ok:true,redirect:true}; }
         catch(e2){ return {ok:false,error:msg(e2)}; }
       }
       return {ok:false,error:msg(e)};
-    }
+    });
   },
   async signOut(){ try{ await signOut(auth); }catch(e){} },
   get(field){ return cache?(cache[field]??null):null; },
@@ -334,11 +336,18 @@ window.CLOUD={
   }
 };
 
-getRedirectResult(auth).catch(e=>{const m=msg(e); if(m) emit('cloud-error',m);});
+getRedirectResult(auth).then(r=>{
+  if(r&&r.user){ try{ sessionStorage.removeItem(RFLAG); }catch(e){} }
+}).catch(e=>{const m=msg(e); if(m) emit('cloud-error',m);});
 
 onAuthStateChanged(auth, async u=>{
   user=u||null; ref=null; cache=null;
-  if(!u){ emit('cloud-auth',null); return; }
+  if(!u){
+    let looped=false;
+    try{ looped=sessionStorage.getItem(RFLAG)==='1'; sessionStorage.removeItem(RFLAG); }catch(e){}
+    if(looped) emit('cloud-error','متصفحك منع حفظ تسجيل الدخول. من إعدادات Safari، اطفي «منع التتبع بين المواقع» أو اسمحي بالنوافذ المنبثقة لهذا الموقع، ثم حاولي مرة ثانية.');
+    emit('cloud-auth',null); return;
+  }
   emit('cloud-loading');
   try{
     ref=doc(db,'users',u.uid);
