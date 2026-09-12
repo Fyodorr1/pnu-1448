@@ -1,0 +1,1123 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#007580">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="الترم الأول">
+<title>تقويم الترم الأول 1448</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Noto+Kufi+Arabic:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* ألوان الهوية: Turquoise #007580، Formal Grey #98989A، Resonant Blue #00A6CE، Caribbean Green #00CE7C، Inspiration Peak #4CA585، Bailey Bells #8B85CA */
+  --paper:#EEF3F3; --surface:#FBFDFD; --ink:#12363B; --ink-2:#4B6266; --ink-3:#6E7F82;
+  --line:#D3DFE0; --primary:#007580; --primary-soft:#A5CDD0; --now:#00CE7C; --grey:#98989A;
+  --lav:#8B85CA; --lav-bg:#ECEAF7; --lav-ink:#463F8C;
+  --blue-bg:#DDF2F8; --blue-ink:#005C73;
+  --peak-bg:#E1F1EA; --peak-ink:#2C6651;
+  --danger:#B3261E;
+  --body:"IBM Plex Sans Arabic","Segoe UI",Tahoma,system-ui,sans-serif;
+  --display:"Noto Kufi Arabic","IBM Plex Sans Arabic",Tahoma,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-text-size-adjust:100%}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+[hidden]{display:none!important}
+.brand{height:5px;display:flex}
+.brand i{flex:1}
+.brand i:nth-child(1){background:var(--primary);flex:3}
+.brand i:nth-child(2){background:#00A6CE}
+.brand i:nth-child(3){background:var(--now)}
+.brand i:nth-child(4){background:#4CA585}
+.brand i:nth-child(5){background:var(--lav)}
+.wrap{max-width:560px;margin:0 auto;padding:20px 16px calc(56px + env(safe-area-inset-bottom))}
+
+/* الرئيسية */
+.title{font-family:var(--display);font-weight:700;font-size:1.9rem;line-height:1.25;margin:6px 0 2px;color:var(--primary)}
+.sub{color:var(--ink-2);margin:0 0 22px;font-size:.95rem}
+.strip{display:flex;gap:3px;align-items:flex-end;height:46px;margin:0 0 6px}
+.seg{flex:1 1 0;height:30px;border:0;padding:0;border-radius:3px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);position:relative;overflow:hidden}
+.seg.past{background:var(--primary-soft);box-shadow:none}
+.seg.now{background:var(--now);height:46px;box-shadow:inset 0 0 0 1.5px var(--ink)}
+.seg.brk{flex:.55 1 0;height:20px;background:repeating-linear-gradient(135deg,#C9CFD0 0 3px,transparent 3px 6px);box-shadow:none;cursor:default}
+.seg .cap{position:absolute;top:0;left:0;right:0;height:5px;background:var(--lav)}
+.seg .dot{position:absolute;bottom:4px;left:50%;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:var(--ink)}
+.strip-ends{display:flex;justify-content:space-between;font-size:.8rem;color:var(--ink-3);margin-bottom:18px}
+.now-line{display:block;width:100%;text-align:right;background:none;border:0;padding:0;margin:0 0 18px;font-size:1.05rem}
+.now-line strong{font-weight:600;background:linear-gradient(transparent 58%,rgba(0,206,124,.55) 58%);padding:0 2px}
+
+.next{display:block;width:100%;text-align:right;border:0;background:var(--lav-bg);border-radius:10px;padding:12px 14px;margin:0 0 10px;border-inline-start:5px solid var(--lav)}
+.next small{display:block;color:var(--lav-ink);font-size:.8rem;font-weight:500}
+.next .what{display:block;font-weight:600;margin:2px 0}
+.next .when{display:block;font-size:.88rem;color:var(--ink-2)}
+
+.weeks{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.wk{display:grid;grid-template-columns:54px 1fr auto;gap:12px;align-items:center;width:100%;text-align:right;background:none;border:0;border-bottom:1px solid var(--line);padding:13px 2px}
+.wk:active{background:var(--surface)}
+.wk-num{font-family:var(--display);font-weight:700;font-size:1.7rem;line-height:1;text-align:center;padding:9px 0;border-radius:6px}
+.wk.past .wk-num{color:var(--grey)}
+.wk.now .wk-num{background:var(--now)}
+.wk-main{min-width:0}
+.wk-name{display:block;font-weight:600}
+.wk-dates{display:block;color:var(--ink-2);font-size:.88rem}
+.wk-evs{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.wk-preview{display:block;font-size:.88rem;margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;border-inline-start:3px solid var(--primary);padding-inline-start:6px}
+.wk-meta{display:flex;flex-direction:column;align-items:flex-end;gap:4px;font-size:.8rem;color:var(--ink-2)}
+.pill{display:inline-flex;align-items:center;gap:4px;padding:1px 8px;border-radius:999px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);white-space:nowrap}
+.pill.done{background:var(--primary);color:#fff;box-shadow:none}
+.brk-row{display:flex;justify-content:space-between;align-items:center;padding:12px 10px;border-bottom:1px solid var(--line);color:var(--ink-2);font-size:.9rem;background:repeating-linear-gradient(135deg,transparent 0 8px,rgba(152,152,154,.12) 8px 16px)}
+
+/* مواعيد المواد */
+.ev{display:inline-flex;align-items:baseline;gap:6px;font-size:.8rem;line-height:1.5;padding:1px 8px;border-radius:6px;background:var(--peak-bg);color:var(--peak-ink);max-width:100%}
+.ev b{font-weight:600;white-space:nowrap}
+.ev-midterm{background:var(--lav-bg);color:var(--lav-ink)}
+.ev-final{background:#5A53A8;color:#fff}
+.ev-quiz{background:var(--blue-bg);color:var(--blue-ink)}
+.ev-pay{background:#FBF1D3;color:#6B4E00;font-weight:500}
+.tag.pay{background:#FBF1D3;color:#6B4E00;box-shadow:none;font-weight:500}
+.pay-line{display:block;width:100%;text-align:right;border:0;background:#FBF1D3;color:#6B4E00;border-radius:10px;padding:9px 14px;margin:0 0 24px;font-size:.92rem}
+.pay-line b{font-weight:600}
+.ev-more,.ev-other{background:var(--surface);color:var(--ink-2);box-shadow:inset 0 0 0 1px var(--line)}
+.ev-other b{color:var(--ink)}
+.cls{list-style:none;margin:0 0 8px;padding:0;font-size:.8rem;color:var(--ink-2)}
+.cls li{display:flex;flex-wrap:wrap;gap:0 8px;padding:1px 0}
+.cls .tm{min-width:92px;white-space:nowrap}
+.cls b{font-weight:600;color:var(--primary);white-space:nowrap}
+.courses .days{display:block;font-size:.8rem;color:var(--ink-3)}
+.evlist{list-style:none;margin:0;padding:0;background:var(--surface);border-radius:8px;box-shadow:inset 0 0 0 1px var(--line)}
+.evlist li{padding:10px 12px;border-bottom:1px solid var(--line)}
+.evlist li:last-child{border-bottom:0}
+.evlist .when{display:block;font-size:.84rem;color:var(--ink-2);margin-bottom:3px}
+.evlist .note{display:block;font-size:.84rem;color:var(--ink-2);margin-top:3px}
+
+.foot{margin-top:32px;font-size:.88rem;color:var(--ink-2)}
+.foot h2{font-size:.95rem;font-weight:600;color:var(--ink);margin:0 0 6px}
+.courses{list-style:none;margin:0 0 22px;padding:0}
+.courses li{display:flex;gap:10px;padding:4px 0;border-bottom:1px dashed var(--line)}
+.courses b{min-width:64px;font-weight:600;color:var(--primary);white-space:nowrap}
+.foot p{margin:0 0 10px}
+.foot .row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+
+/* شاشة تسجيل الدخول */
+#gate .wrap{padding-top:48px}
+.gate-card{background:var(--surface);border-radius:14px;box-shadow:inset 0 0 0 1px var(--line);padding:24px 20px;text-align:center}
+.gate-card h1{font-family:var(--display);font-size:1.5rem;color:var(--primary);margin:0 0 6px;line-height:1.35}
+.gate-card p{color:var(--ink-2);margin:0 0 18px;font-size:.95rem}
+.gbtn{display:inline-flex;align-items:center;justify-content:center;gap:10px;width:100%;border:0;background:var(--primary);color:#fff;border-radius:10px;padding:13px 16px;font-size:1rem;font-weight:600}
+.gbtn:disabled{opacity:.6}
+.gbtn svg{flex:none;background:#fff;border-radius:3px;padding:2px}
+.gate-note{font-size:.84rem;color:var(--ink-3);margin:16px 0 0;text-align:right;line-height:1.7}
+.gate-err{background:#FBE9E7;color:#8C2F22;border-radius:10px;padding:10px 14px;font-size:.88rem;margin:0 0 14px;text-align:right}
+.gate-feat{list-style:none;margin:18px 0 0;padding:0;text-align:right;font-size:.9rem;color:var(--ink-2)}
+.gate-feat li{padding:3px 0}
+.gate-feat b{color:var(--primary)}
+.acct{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--surface);border-radius:10px;box-shadow:inset 0 0 0 1px var(--line);padding:10px 12px;margin:0 0 12px}
+.acct .who{flex:1;min-width:0;font-size:.88rem}
+.acct .who b{display:block;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.acct .who span{color:var(--ink-3);font-size:.82rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;direction:ltr;text-align:right}
+
+/* التبويبات */
+.tabs{display:flex;gap:4px;background:#DFE8E9;padding:4px;border-radius:10px;margin:0 0 18px;scroll-margin-top:8px}
+.tab{flex:1;border:0;background:none;border-radius:7px;padding:8px 4px;font-size:.88rem;color:var(--ink-2);font-weight:500;white-space:nowrap}
+.tab.on{background:var(--surface);color:var(--primary);font-weight:600;box-shadow:0 1px 2px rgba(18,54,59,.14)}
+
+/* التقويم الشهري */
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.76rem;color:var(--ink-2);margin:0 0 14px}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.legend i{display:inline-block;flex:none}
+.lg-today{width:12px;height:12px;border-radius:50%;background:var(--now)}
+.lg-h1{font-style:normal;font-size:.76rem;line-height:1;text-decoration:underline 2px var(--lav);text-underline-offset:3px}
+.lg-brk{width:12px;height:12px;border-radius:3px;background:repeating-linear-gradient(135deg,rgba(152,152,154,.5) 0 2px,transparent 2px 4px)}
+.yr{display:flex;align-items:baseline;gap:10px;border-bottom:1px solid var(--line);padding-bottom:4px;margin:6px 0 12px}
+.yr b{font-family:var(--display);font-size:1.7rem;line-height:1.2}
+.yr span{font-size:.8rem;color:var(--ink-3)}
+.months{display:grid;grid-template-columns:1fr 1fr;gap:20px 18px;margin-bottom:24px}
+@media (min-width:620px){.months{grid-template-columns:repeat(3,1fr)}}
+.month h3{font-family:var(--display);font-size:1.1rem;margin:0 0 4px;line-height:1.4}
+.month.cur h3{color:var(--primary)}
+.mgrid{display:grid;grid-template-columns:repeat(7,1fr)}
+.wd{font-size:.62rem;color:var(--ink-3);text-align:center;padding-bottom:2px}
+.dc{display:flex;flex-direction:column;align-items:center;border:0;background:none;padding:2px 0 0;height:36px;font-size:.8rem;line-height:1;color:var(--ink);min-width:0}
+.dc .n{display:grid;place-items:center;width:22px;height:22px;border-radius:50%}
+.dc.we .n{color:var(--ink-3)}
+.dc.past .n{color:var(--grey)}
+.dc.out .n{color:#BCC5C6}
+.dc.brk .n{color:var(--ink-3);background:repeating-linear-gradient(135deg,rgba(152,152,154,.3) 0 2px,transparent 2px 4px)}
+.dc.h1 .n{text-decoration:underline 2px var(--lav);text-underline-offset:3px}
+.dc.today .n{background:var(--now);color:var(--ink);font-weight:700}
+button.dc:active .n{background:#D5E3E4}
+.marks{display:flex;align-items:center;gap:2px;height:10px;margin-top:1px}
+.m-pay{font-style:normal;font-size:9px;line-height:1;width:auto!important;height:auto!important}
+.lg-pay{font-style:normal;font-size:11px;line-height:1}
+.marks i{width:5px;height:5px;border-radius:50%}
+.legend .m-ev,.legend .m-tent,.legend .m-note{width:8px;height:8px;border-radius:50%}
+.m-ev{background:#5A53A8}
+.m-note{background:var(--primary)}
+
+/* مواعيد الاختبارات */
+.ex-h{font-size:1rem;font-weight:600;margin:4px 0 8px}
+.exlist{list-style:none;margin:0 0 24px;padding:0;background:var(--surface);border-radius:10px;box-shadow:inset 0 0 0 1px var(--line)}
+.exlist li+li{border-top:1px solid var(--line)}
+.ex{display:grid;grid-template-columns:60px 1fr;gap:12px;width:100%;text-align:right;border:0;background:none;padding:12px;align-items:start}
+button.ex:active{background:#F1F6F6}
+.ex-badge{display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--lav-bg);color:var(--lav-ink);border-radius:8px;min-height:56px;padding:4px 2px}
+.ex.fin .ex-badge{background:#5A53A8;color:#fff}
+.ex.qz .ex-badge{background:var(--blue-bg);color:var(--blue-ink)}
+.ex.tbd .ex-badge{background:#EEF1F1;color:var(--ink-3)}
+.ex-badge b{font-family:var(--display);font-size:1.25rem;line-height:1.15;white-space:nowrap}
+.ex-badge small{font-size:.72rem}
+.ex-badge b.sm{font-size:1rem}
+.ex-main{min-width:0;display:flex;flex-direction:column;align-items:flex-start}
+.ex-course{font-weight:500}
+.ex-course b{color:var(--primary);font-weight:600;margin-inline-end:6px;white-space:nowrap}
+.ex-when{font-size:.86rem;color:var(--ink-2)}
+.ex-note{font-size:.8rem;color:var(--ink-3);margin-top:2px}
+.ex-cd{font-size:.76rem;font-weight:600;color:var(--peak-ink);background:var(--peak-bg);border-radius:999px;padding:0 9px;margin-top:6px}
+.ex-cd.done{color:var(--ink-3);background:#EEF1F1}
+.ex.past .ex-main,.ex.past .ex-badge{opacity:.6}
+.ex-foot{font-size:.82rem;color:var(--ink-3);margin:-10px 0 0}
+.day{scroll-margin-top:64px}
+.day.flash{animation:flash 1.6s ease-out}
+@keyframes flash{0%,40%{background:rgba(0,206,124,.14)}100%{background:transparent}}
+
+/* صفحة الأسبوع */
+.bar{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+.bar-in{max-width:560px;margin:0 auto;display:flex;align-items:center;gap:8px;padding:10px 16px}
+.bar .back{margin-inline-end:auto}
+.btn{background:var(--surface);border:0;box-shadow:inset 0 0 0 1px var(--line);border-radius:8px;padding:6px 14px;font-size:.92rem}
+.btn:disabled{opacity:.35;cursor:default}
+.btn.plain{background:none;box-shadow:none;padding:6px 2px;font-weight:600;color:var(--primary)}
+.btn.primary{background:var(--primary);color:#fff;box-shadow:none}
+.btn.danger{color:var(--danger);font-weight:500}
+label.btn{display:inline-block}
+.wk-head{display:flex;gap:14px;align-items:center;margin:14px 0 24px}
+.wk-head .big{font-family:var(--display);font-weight:700;font-size:3.2rem;line-height:1;padding:8px 14px;border-radius:8px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);min-width:84px;text-align:center;color:var(--primary)}
+.wk-head.now .big{background:var(--now);box-shadow:none;color:var(--ink)}
+.wk-head h1{font-family:var(--display);font-size:1.35rem;margin:0;line-height:1.35}
+.wk-head p{margin:0;color:var(--ink-2);font-size:.9rem}
+.wk-head p.h{color:var(--ink-3);font-size:.84rem}
+.blk{margin:0 0 28px}
+.blk h2{font-size:1rem;font-weight:600;margin:0 0 8px;display:flex;justify-content:space-between;align-items:baseline}
+.blk h2 small{font-weight:400;color:var(--ink-2);font-size:.85rem}
+input::placeholder{color:var(--ink-3)}
+
+.tasks{list-style:none;margin:0 0 8px;padding:0;background:var(--surface);border-radius:8px;box-shadow:inset 0 0 0 1px var(--line)}
+.task{display:flex;align-items:center;gap:8px;padding:6px 10px 6px 4px;border-bottom:1px solid var(--line)}
+.task:last-child{border-bottom:0}
+.task input[type=checkbox]{appearance:none;-webkit-appearance:none;width:24px;height:24px;flex:none;border-radius:6px;box-shadow:inset 0 0 0 1.5px var(--ink-2);margin:0;display:grid;place-content:center;background:var(--surface);cursor:pointer}
+.task input[type=checkbox]:checked{background:var(--primary);box-shadow:none}
+.task input[type=checkbox]:checked::after{content:"";width:11px;height:6px;border:solid #fff;border-width:0 0 2.5px 2.5px;transform:translateY(-1px) rotate(-45deg)}
+.task .code{flex:none;font-size:.76rem;font-weight:600;color:var(--primary);background:#E2F0F1;border-radius:5px;padding:0 6px;white-space:nowrap}
+.task .txt{flex:1;min-width:0;border:0;background:none;padding:6px 0}
+.task .txt:focus{outline:none}
+.task.done .txt{text-decoration:line-through;color:var(--ink-3)}
+.task .del{border:0;background:none;color:var(--ink-3);width:36px;height:36px;border-radius:6px;flex:none}
+.tasks.mini{background:none;box-shadow:none}
+.tasks.mini .task{padding:2px 0;border-bottom:0;gap:6px}
+.tasks.mini input[type=checkbox]{width:20px;height:20px;border-radius:5px}
+.tasks.mini input[type=checkbox]:checked::after{width:9px;height:5px}
+.tasks.mini .txt{font-size:.94rem;padding:4px 0}
+.tasks.mini .del{width:30px;height:30px}
+.add.with-course input{grid-column:1 / -1}
+.add.mini{gap:6px}
+.add.mini input{background:none;box-shadow:inset 0 0 0 1px var(--line);padding:7px 10px;font-size:.92rem}
+.btn.ghost{background:none;box-shadow:inset 0 0 0 1px var(--line);color:var(--primary);font-size:1.15rem;line-height:1;padding:0 14px;font-weight:600}
+.daynotes{margin-top:2px}
+.add{display:grid;grid-template-columns:1fr auto;gap:8px}
+.add input{grid-column:1;min-width:0;border:0;border-radius:8px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);padding:9px 12px}
+.add select{min-width:0;border:0;border-radius:8px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);padding:7px 10px}
+.add input:focus,.add select:focus{outline:none;box-shadow:inset 0 0 0 1.5px var(--primary)}
+
+.day{display:grid;grid-template-columns:54px 1fr;gap:12px;padding:14px 0;border-top:1px solid var(--line)}
+.day-date{text-align:center;padding-top:2px}
+.day-date b{display:inline-block;font-family:var(--display);font-size:1.6rem;line-height:1.15;padding:0 4px}
+.day-date span{display:block;font-size:.78rem;color:var(--ink-2)}
+.day.today .day-date b{background:linear-gradient(transparent 52%,rgba(0,206,124,.6) 52%)}
+.day.past .day-date b{color:var(--grey)}
+.day-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-bottom:6px}
+.day-name{font-weight:600}
+.day-hijri{font-size:.82rem;color:var(--ink-3)}
+.day-evs{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:6px}
+.tag{font-size:.76rem;padding:0 8px;border-radius:999px;background:var(--surface);box-shadow:inset 0 0 0 1px var(--line);color:var(--ink-2)}
+.tag.today{background:var(--now);box-shadow:none;color:var(--ink);font-weight:600}
+details.weekend{border-top:1px solid var(--line)}
+details.weekend summary{padding:12px 0;color:var(--ink-2);cursor:pointer;list-style:none}
+details.weekend summary::-webkit-details-marker{display:none}
+details.weekend summary::before{content:"+";display:inline-block;width:1.2em;font-weight:600}
+details.weekend[open] summary::before{content:"−"}
+
+.status{position:fixed;bottom:calc(16px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:.8rem;padding:4px 14px;border-radius:999px;opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap}
+.status.show{opacity:1}
+.status.err{background:var(--danger)}
+
+#week.enter .wrap{animation:rise .2s ease-out}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){#week.enter .wrap{animation:none}.status{transition:none}.day.flash{animation:none}}
+</style>
+</head>
+<body>
+<div class="brand" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+<main id="gate" hidden></main>
+<main id="home"></main>
+<main id="week" hidden></main>
+<div id="status" class="status" role="status" aria-live="polite"></div>
+
+<script type="module">
+/* ===== الاتصال بـ Firebase: تسجيل الدخول بحساب Google ومزامنة البيانات ===== */
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult,
+         onAuthStateChanged, signOut, setPersistence, browserLocalPersistence }
+  from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, serverTimestamp }
+  from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDI6NTYXJXoRSQaqiDr5eMtTJzULel7RkU",
+  authDomain: "pnu-1448.firebaseapp.com",
+  projectId: "pnu-1448",
+  storageBucket: "pnu-1448.firebasestorage.app",
+  messagingSenderId: "475248637486",
+  appId: "1:475248637486:web:4d339f93a9121003b891bf"
+};
+
+const app=initializeApp(firebaseConfig);
+const auth=getAuth(app);
+auth.languageCode='ar';
+const db=getFirestore(app);
+const provider=new GoogleAuthProvider();
+provider.setCustomParameters({prompt:'select_account'});
+/* يُضبط مرة واحدة عند التحميل، عشان ما نكسر إشارة الضغط في سفاري */
+setPersistence(auth,browserLocalPersistence).catch(()=>{});
+const RFLAG='pnu-1448-redirecting';
+
+let user=null, ref=null, cache=null;
+let lastState;
+
+function emit(name,detail){
+  if(name==='cloud-auth'){ lastState=detail; window.CLOUD.state=detail; }
+  window.dispatchEvent(new CustomEvent(name,{detail}));
+}
+function msg(e){
+  const c=(e&&e.code)||'';
+  if(c==='auth/popup-closed-by-user'||c==='auth/cancelled-popup-request') return null;
+  if(c==='auth/network-request-failed') return 'ما فيه اتصال بالإنترنت، تأكدي من الشبكة وحاولي مرة ثانية.';
+  if(c==='auth/unauthorized-domain') return 'هذا الرابط غير مصرّح له. لازم يُضاف النطاق في إعدادات Firebase.';
+  if(c==='permission-denied') return 'ما عندك صلاحية للحفظ. تأكدي من قواعد Firestore.';
+  if(c==='unavailable') return 'ما قدرنا نوصل للخادم، تأكدي من الإنترنت.';
+  return 'صار خطأ غير متوقع: '+(c||(e&&e.message)||'');
+}
+
+window.CLOUD={
+  state:undefined,
+  get user(){return user;},
+  signIn(){
+    /* بدون await قبل فتح النافذة، وإلا سفاري يمنعها */
+    return signInWithPopup(auth,provider).then(()=>({ok:true})).catch(async e=>{
+      const c=e&&e.code;
+      if(c==='auth/popup-closed-by-user'||c==='auth/cancelled-popup-request') return {ok:false};
+      if(c==='auth/popup-blocked'||c==='auth/operation-not-supported-in-this-environment'){
+        try{ sessionStorage.setItem(RFLAG,'1'); }catch(e3){}
+        try{ await signInWithRedirect(auth,provider); return {ok:true,redirect:true}; }
+        catch(e2){ return {ok:false,error:msg(e2)}; }
+      }
+      return {ok:false,error:msg(e)};
+    });
+  },
+  async signOut(){ try{ await signOut(auth); }catch(e){} },
+  get(field){ return cache?(cache[field]??null):null; },
+  async set(field,value){
+    if(!ref) return false;
+    try{
+      await setDoc(ref,{[field]:value,email:user?user.email:null,name:user?user.displayName:null,updatedAt:serverTimestamp()},{merge:true});
+      if(cache) cache[field]=value;
+      return true;
+    }catch(e){ return false; }
+  }
+};
+
+getRedirectResult(auth).then(r=>{
+  if(r&&r.user){ try{ sessionStorage.removeItem(RFLAG); }catch(e){} }
+}).catch(e=>{const m=msg(e); if(m) emit('cloud-error',m);});
+
+onAuthStateChanged(auth, async u=>{
+  user=u||null; ref=null; cache=null;
+  if(!u){
+    let looped=false;
+    try{ looped=sessionStorage.getItem(RFLAG)==='1'; sessionStorage.removeItem(RFLAG); }catch(e){}
+    if(looped) emit('cloud-error','متصفحك منع حفظ تسجيل الدخول. من إعدادات Safari، اطفي «منع التتبع بين المواقع» أو اسمحي بالنوافذ المنبثقة لهذا الموقع، ثم حاولي مرة ثانية.');
+    emit('cloud-auth',null); return;
+  }
+  emit('cloud-loading');
+  try{
+    ref=doc(db,'users',u.uid);
+    const snap=await getDoc(ref);
+    cache=snap.exists()?snap.data():{};
+    emit('cloud-auth',{uid:u.uid,name:u.displayName,email:u.email,fresh:!snap.exists()});
+  }catch(e){
+    emit('cloud-error',msg(e));
+    emit('cloud-auth',null);
+  }
+});
+</script>
+
+<script>
+/* =====================================================================
+   المواد
+   ===================================================================== */
+const COURSES=[
+  {code:'ادر 101', name:'مبادئ إدارة الأعمال'},
+  {code:'ادر 161', name:'مهارات الأعمال'},
+  {code:'ريض 161', name:'إحصاء عام'},
+  {code:'عام 032', name:'الموهبة والتفوق العقلي'},
+  {code:'عام 060', name:'التنمية المستدامة'},
+  {code:'عام 070', name:'القيم والأخلاق الإسلامية'}
+];
+
+/* =====================================================================
+   مواعيد المواد — تظهر لكل الطالبات
+   type:  quiz = اختبار قصير | midterm = اختبار فصلي | final = اختبار نهائي
+          assignment = تسليم | other = موعد
+   date:  'YYYY-MM-DD'   أو   week: رقم الأسبوع (إذا اليوم ما تحدد)   أو   weeks: [10,11]
+   title و time و note اختيارية
+   ===================================================================== */
+const EVENTS=[
+  /* الأسبوع 4 */
+  {course:'ادر 101', type:'quiz', title:'الاختبار القصير الأول', week:4},
+  {course:'ريض 161', type:'quiz', title:'الاختبار القصير الأول', week:4, note:'الدرسين 1 و2، 5 درجات، حضوري مع أستاذة العملي'},
+  {course:'عام 060', type:'quiz', title:'الاختبار القصير الأول', date:'2026-09-16', time:'يفتح 5:00 م ويقفل 6:00 م', note:'إلكتروني على البلاك بورد، 10 درجات، مدة الاختبار 30 دقيقة'},
+  {course:'ادر 161', type:'other', title:'نشاط McGraw Hill في المحاضرة', week:4, note:'الموضوع: T1 Managing your Time'},
+  /* الأسبوع 5 */
+  {course:'ادر 101', type:'assignment', title:'دراسة الحالة الجماعية', week:5, note:'7%'},
+
+  /* الأسبوع 6 */
+  {course:'عام 060', type:'midterm', title:'الاختبار الفصلي', week:6, note:'يُعلن موعده في أخبار المقرر'},
+  {course:'عام 060', type:'assignment', title:'تسليم دراسة الحالة', date:'2026-09-30', time:'آخر موعد 10:00 م', note:'10 درجات، جماعي لكل مجموعة من 10 طالبات. تقرير PDF لا يتجاوز 5 صفحات بدون الغلاف، ويُرفع على البلاك بورد بمحاولة واحدة. كل مجموعة تختار حالة نيوم أو البحر الأحمر'},
+  {course:'عام 060', type:'assignment', title:'تسليم مشروع العرض التقديمي', date:'2026-10-15', time:'آخر موعد 10:00 م', note:'20 درجة، عرض مسجل بالصوت مدته 15 دقيقة، من 18 إلى 25 شريحة مع الغلاف والمحتويات والمراجع. يُرفع على البلاك بورد بمحاولة واحدة'},
+  {course:'عام 060', type:'assignment', title:'تسليم المشروع النهائي والملصق', date:'2026-11-04', time:'آخر موعد 10:00 م', note:'20 درجة، نموذج العمل والملصق بصيغة PDF على البلاك بورد بمحاولة واحدة. متاح من الأسبوع الثالث'},
+  {course:'عام 032', type:'midterm', title:'الاختبار الفصلي', week:6, note:'20 درجة، يُعلن موعده في أخبار المقرر'},
+  {course:'عام 070', type:'midterm', title:'الاختبار الفصلي', week:6, note:'30 درجة'},
+  /* الأسبوع 7 */
+  {course:'ادر 161', type:'other', title:'نشاط McGraw Hill في المحاضرة', week:7, note:'الموضوع: T2 Goal Setting and Self Assessment'},
+  /* الأسبوع 8 */
+  {course:'ادر 161', type:'midterm', title:'الاختبار الفصلي', week:8, note:'30 درجة. الخطة تذكر الأربعاء 12–1 ظهرًا لكن التاريخ المكتوب فيها قديم، تأكدي من الأستاذة. المواضيع T1 و T3 و T4 و T5'},
+  {course:'ادر 161', type:'quiz', title:'الاختبار القصير الأول', week:8, note:'8 درجات، والتاريخ المكتوب في الخطة 11 أكتوبر. الموضوع: T3 Note Taking, Memory, and Test Taking'},
+  {course:'ريض 161', type:'quiz', title:'الاختبار القصير الثاني', week:8, note:'الدروس 3 و4 و5، 15 درجة، حضوري مع أستاذة العملي'},
+
+  /* الأسبوع 9 */
+  {course:'عام 060', type:'quiz', title:'الاختبار القصير الثاني', week:9, note:'10 درجات'},
+  {course:'عام 032', type:'assignment', title:'تسليم الواجب الأول', week:9},
+  {course:'ادر 161', type:'other', title:'نشاط McGraw Hill في المحاضرة', week:9, note:'الموضوع: T4 Reading Effectively, Academic Writing and Public Speaking'},
+  /* الأسبوع 10 */
+  {course:'ادر 101', type:'quiz', title:'الاختبار القصير الثاني', week:10},
+  {course:'ادر 161', type:'other', title:'نشاط McGraw Hill في المحاضرة', week:10, note:'الموضوع: T5 Critical Thinking'},
+  {course:'عام 070', type:'assignment', title:'تسليم النشاط الجماعي', weeks:[10,11]},
+  /* الأسبوع 11 */
+  {course:'ريض 161', type:'midterm', title:'الاختبار الفصلي', date:'2026-11-05', time:'12:00 – 1:30 ظهرًا', note:'الدروس 5 إلى 9، 25 درجة'},
+  {course:'ادر 161', type:'quiz', title:'الاختبار القصير الثاني', week:11, note:'7 درجات، والتاريخ المكتوب في الخطة 1 نوفمبر. الموضوع: T6 Communication, Groups, and Diversity'},
+  {course:'ادر 161', type:'assignment', title:'آخر موعد لرفع شهادات Word وExcel وPowerPoint', date:'2026-11-07', note:'على بلاك بورد، الرفع متاح من الأسبوع 9، وكل شهادة 5 درجات'},
+  /* الأسبوع 12 */
+  {course:'ادر 101', type:'assignment', title:'تسليم تقرير المشروع', week:12, note:'15%'},
+  {course:'ادر 161', type:'assignment', title:'المشروع: البوستر والعرض', week:12, note:'البوستر 15 درجة والعرض 5 درجات. التاريخ المكتوب في الخطة 8 نوفمبر'},
+
+  {course:'عام 070', type:'quiz', title:'الاختبار القصير', week:12, note:'12 درجة، مدته 30 دقيقة'},
+  {course:'عام 032', type:'assignment', title:'تسليم الواجب الثاني', week:12},
+  /* الأسبوع 13 و14 */
+  {course:'عام 070', type:'assignment', title:'الواجب الأول', week:13},
+  {course:'عام 060', type:'other', title:'مناقشة وعرض المشاريع', weeks:[13,14], note:'في الفصل الافتراضي'},
+  {course:'ريض 161', type:'assignment', title:'مشروع Excel', week:14, note:'10 درجات، مع أستاذة العملي'},
+  {course:'ريض 161', type:'other', title:'اختبار المتغيبات بعذر مقبول', week:14, note:'للي غابت عن اختبار بعذر مقبول'},
+  /* النهائي */
+  {course:'ريض 161', type:'final', title:'الاختبار النهائي', weeks:[16,17], note:'40 درجة'},
+  {course:'عام 032', type:'final', title:'الاختبار النهائي', week:16, note:'40 درجة، يُعلن موعده في أخبار المقرر'},
+  {course:'عام 070', type:'final', title:'الاختبار النهائي', week:16, note:'40 درجة، مدته ساعتان، يُعلن موعده في أخبار المقرر'},
+  /* مواعيد غير معروفة: تظهر في «مواعيد الاختبارات» فقط */
+  {course:'ادر 101', type:'midterm', title:'الاختبار الفصلي', note:'20%، موعده يتحدد لاحقًا حسب الخطة'},
+  {course:'ادر 101', type:'final', title:'الاختبار النهائي', note:'الخطة ناقصة، الموعد غير معروف'},
+  {course:'عام 060', type:'final', title:'الاختبار النهائي', note:'الخطة ما ذكرت اختبار نهائي'},
+  {course:'ادر 161', type:'final', title:'الاختبار النهائي', none:true, note:'توزيع الدرجات في الخطة 100% بدون اختبار نهائي'}
+];
+
+/* =====================================================================
+   جدول المحاضرات (0 = الأحد ... 4 = الخميس) — يظهر من الأسبوع 1 إلى 15
+   ===================================================================== */
+const SCHEDULE={
+  0:[{course:'ادر 101', time:'10:00 – 11:40 ص', place:'A6، قاعة 1.1330'},
+     {course:'عام 070', time:'5:00 – 6:40 م', place:'عن بعد'}],
+  1:[{course:'عام 032', time:'5:00 – 6:40 م', place:'عن بعد'}],
+  2:[{course:'ريض 161', time:'8:00 – 9:40 ص', place:'A6، قاعة 2.402', teacher:'د. شاهة'},
+     {course:'ادر 101', time:'10:00 – 10:50 ص', place:'A6، قاعة 2.402'},
+     {course:'ادر 161', time:'11:00 – 11:50 ص', place:'A6، قاعة 2.402'}],
+  3:[{course:'عام 060', time:'5:00 – 6:40 م', place:'عن بعد'}],
+  4:[{course:'ريض 161', time:'9:00 – 9:50 ص', place:'A6، قاعة 2.402', teacher:'د. نورة'},
+     {course:'ادر 161', time:'10:00 – 11:40 ص', place:'A6، قاعة 1.1330'}]
+};
+const LAST_CLASS_WEEK=15;
+
+(function(){
+const M=['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+const DN=['الأحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+const ORD=['الأول','الثاني','الثالث','الرابع','الخامس','السادس','السابع','الثامن','التاسع','العاشر','الحادي عشر','الثاني عشر','الثالث عشر','الرابع عشر','الخامس عشر','السادس عشر','السابع عشر','الثامن عشر','التاسع عشر'];
+const TYPE_LABEL={quiz:'اختبار قصير',midterm:'اختبار فصلي',final:'اختبار نهائي',assignment:'تسليم',other:'موعد'};
+const KEY='semester-1448-term1-v1';
+
+const addDays=(d,n)=>new Date(d.getFullYear(),d.getMonth(),d.getDate()+n);
+const dkey=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+const parseKey=k=>{const [y,m,d]=k.split('-').map(Number);return new Date(y,m-1,d);};
+let hf=null;
+try{hf=new Intl.DateTimeFormat('ar-SA-u-ca-islamic-umalqura-nu-latn',{day:'numeric',month:'long'});}catch(e){}
+const hijri=d=>{try{return hf?hf.format(d):'';}catch(e){return '';}};
+function hrange(a,b){
+  try{
+    const g=(p,t)=>(p.find(x=>x.type===t)||{}).value;
+    const pa=hf.formatToParts(a), pb=hf.formatToParts(b);
+    if(g(pa,'month')===g(pb,'month')) return `${g(pa,'day')} – ${g(pb,'day')} ${g(pb,'month')} 1448هـ`;
+    return `${hf.format(a)} – ${hf.format(b)} 1448هـ`;
+  }catch(e){return '';}
+}
+function rangeText(a,b,withYear){
+  const s=a.getMonth()===b.getMonth()
+    ?`${a.getDate()} – ${b.getDate()} ${M[b.getMonth()]}`
+    :`${a.getDate()} ${M[a.getMonth()]} – ${b.getDate()} ${M[b.getMonth()]}`;
+  return withYear?`${s} ${b.getFullYear()}`:s;
+}
+function weeksWord(k){
+  if(k===1) return 'أسبوع واحد';
+  if(k===2) return 'أسبوعان';
+  if(k<=10) return k+' أسابيع';
+  return k+' أسبوعًا';
+}
+function inDays(n){
+  if(n===0) return 'اليوم';
+  if(n===1) return 'بكرة';
+  if(n===2) return 'بعد يومين';
+  if(n<=10) return `بعد ${n} أيام`;
+  return `بعد ${n} يومًا`;
+}
+
+/* 19 أسبوع دراسي، وإجازة الخريف (20–28 نوفمبر) بين الأسبوع 13 و14 */
+const WEEKS=[];
+for(let i=1;i<=19;i++){
+  const start=i<=13?addDays(new Date(2026,7,23),(i-1)*7):addDays(new Date(2026,10,29),(i-14)*7);
+  WEEKS.push({n:i,start,days:Array.from({length:7},(_,k)=>addDays(start,k))});
+}
+const TAGS={'2026-08-23':'بداية الدراسة','2026-09-23':'اليوم الوطني','2027-01-07':'آخر يوم دراسة'};
+
+const now=new Date();
+const today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+const TK=dkey(today);
+const cur=WEEKS.find(w=>today>=w.start&&today<addDays(w.start,7));
+const inBreak=!cur&&today>=new Date(2026,10,22)&&today<new Date(2026,10,29);
+function stateOf(w){
+  if(today>=addDays(w.start,7)) return 'past';
+  if(today>=w.start) return 'now';
+  return 'future';
+}
+
+/* المواعيد بعد ربطها بالأسابيع */
+const PRI={final:0,midterm:1,quiz:2,assignment:3,other:4};
+const EXAM_TYPES=['quiz','midterm','final'];
+const VIEW_KEY='semester-1448-view';
+let VIEW='weeks';
+const EV=[];
+EVENTS.forEach(e=>{
+  const d=e.date?parseKey(e.date):null;
+  let wks=[];
+  if(d){const w=WEEKS.find(w=>d>=w.start&&d<addDays(w.start,7)); if(w) wks=[w.n];}
+  else if(Array.isArray(e.weeks)) wks=e.weeks;
+  else if(e.week) wks=[e.week];
+  wks=wks.filter(n=>n>=1&&n<=19);
+  wks.forEach(n=>EV.push(Object.assign({},e,{d,wk:n,span:wks.length>1?wks:null})));
+});
+const pri=e=>PRI[e.type]!=null?PRI[e.type]:4;
+const evTime=e=>e.d?e.d.getTime():WEEKS[e.wk-1].start.getTime()+6*864e5;
+const byTime=(a,b)=>evTime(a)-evTime(b)||pri(a)-pri(b);
+const eventsOfWeek=n=>EV.filter(e=>e.wk===n).sort(byTime);
+const eventsOfDay=k=>EV.filter(e=>e.date===k).sort(byTime);
+function nextEvent(){
+  return EV.filter(e=>e.d?e.d>=today:addDays(WEEKS[e.wk-1].start,7)>today).sort(byTime)[0]||null;
+}
+function weekOfDate(d){const w=WEEKS.find(w=>d>=w.start&&d<addDays(w.start,7));return w?w.n:null;}
+/* المكافأة: 27 من كل شهر، إذا جات جمعة تنزل الخميس، وإذا جات سبت تنزل الأحد */
+function paydayOf(y,m){
+  const d=new Date(y,m,27);
+  if(d.getDay()===5) return new Date(y,m,26);
+  if(d.getDay()===6) return new Date(y,m,28);
+  return d;
+}
+const isPayday=d=>dkey(paydayOf(d.getFullYear(),d.getMonth()))===dkey(d);
+function nextPayday(){
+  let y=today.getFullYear(), m=today.getMonth(), p=paydayOf(y,m);
+  if(p<today){m++; if(m>11){m=0;y++;} p=paydayOf(y,m);}
+  return p;
+}
+const PAY_LABEL='💰 المكافأة';
+function courseDays(code){
+  const out=[];
+  for(let i=0;i<5;i++) if((SCHEDULE[i]||[]).some(c=>c.course===code)) out.push(DN[i]);
+  return out.join(' و');
+}
+function whenText(e){
+  if(e.d) return dayLabel(e.d)+(e.time?`، ${e.time}`:'');
+  return e.span?`خلال الأسبوعين ${e.span.join(' و')}`:'';
+}
+
+/* التخزين على جهاز الطالبة */
+/* تخزين محلي، يُستخدم فقط لنقل البيانات القديمة بعد أول تسجيل دخول */
+const LOCAL=(function(){
+  try{const ls=window.localStorage; ls.setItem('__t','1'); ls.removeItem('__t'); return ls;}catch(e){return null;}
+})();
+/* التخزين السحابي: ملف خاص بكل طالبة في Firestore */
+let store=null;
+let account=null;
+function makeStore(){
+  return {
+    kind:'cloud',
+    async get(k=KEY){ return window.CLOUD.get(k===KEY?'data':'view'); },
+    async set(v,k=KEY){ return window.CLOUD.set(k===KEY?'data':'view', v); }
+  };
+}
+
+let data={weekNotes:{},weekTasks:{},dayNotes:{}};
+let uid=0;
+function newItem(t){return {id:Date.now().toString(36)+(uid++).toString(36),text:t,done:false};}
+/* الملاحظات القديمة كانت نصًّا واحدًا، نحوّلها لأسطر */
+function toList(v){
+  if(Array.isArray(v)) return v.filter(x=>x&&typeof x.text==='string');
+  if(typeof v==='string') return v.split('\n').map(t=>t.trim()).filter(Boolean).map(newItem);
+  return [];
+}
+function normNotes(o){
+  const out={};
+  Object.keys(o||{}).forEach(k=>{const l=toList(o[k]); if(l.length) out[k]=l;});
+  return out;
+}
+function adopt(p){data={weekNotes:normNotes(p.weekNotes),weekTasks:p.weekTasks||{},dayNotes:normNotes(p.dayNotes)};}
+async function load(){
+  if(!store) return;
+  const v=await store.get();
+  if(v){try{adopt(JSON.parse(v));}catch(e){}}
+}
+let saveTimer;
+function save(){
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(async()=>{
+    if(!store) return;
+    const ok=await store.set(JSON.stringify(data));
+    ok?toast('تم الحفظ'):toast('ما انحفظ التعديل، جرّبي مرة ثانية',true);
+  },600);
+}
+function toast(msg,err){
+  const el=document.getElementById('status');
+  clearTimeout(el._t);
+  el.textContent=msg;
+  el.className='status show'+(err?' err':'');
+  el._t=setTimeout(()=>el.className='status',err?3500:1100);
+}
+
+/* أدوات */
+function h(tag,attrs,...kids){
+  const el=document.createElement(tag);
+  if(attrs) for(const [k,v] of Object.entries(attrs)){
+    if(v==null||v===false) continue;
+    if(k==='class') el.className=v;
+    else if(k==='text') el.textContent=v;
+    else if(k.startsWith('on')) el.addEventListener(k.slice(2),v);
+    else el.setAttribute(k,v===true?'':v);
+  }
+  kids.flat().forEach(c=>{if(c==null||c===false)return; el.append(c.nodeType?c:document.createTextNode(c));});
+  return el;
+}
+const taskCounts=w=>{const t=data.weekTasks[w.n]||[];return [t.filter(x=>x.done).length,t.length];};
+const noteOf=d=>(data.dayNotes[dkey(d)]||[]);
+function hasNotes(w){return (data.weekNotes[w.n]||[]).length>0||w.days.some(d=>noteOf(d).length);}
+function preview(w){
+  const wn=data.weekNotes[w.n]||[];
+  const open=wn.filter(x=>!x.done);
+  if(open.length) return open[0].text;
+  if(wn.length) return wn[0].text;
+  for(const d of w.days){const l=noteOf(d); if(l.length) return DN[d.getDay()]+': '+((l.find(x=>!x.done)||l[0]).text);}
+  return '';
+}
+function chip(e){
+  return h('span',{class:'ev ev-'+(TYPE_LABEL[e.type]?e.type:'other')},
+    h('b',{text:e.course}), e.title||TYPE_LABEL[e.type]||TYPE_LABEL.other);
+}
+const dayLabel=d=>`${DN[d.getDay()]} ${d.getDate()} ${M[d.getMonth()]}`;
+
+/* الصفحة الرئيسية */
+function weeksView(){
+  const ul=h('ul',{class:'weeks'});
+  WEEKS.forEach(w=>{
+    const [d,t]=taskCounts(w); const pv=preview(w); const evs=eventsOfWeek(w.n).sort((a,b)=>pri(a)-pri(b));
+    const meta=h('span',{class:'wk-meta'});
+    if(t) meta.append(h('span',{class:'pill'+(d===t?' done':''),'aria-label':`أنجزتِ ${d} من ${t}`},`✓ ${d}/${t}`));
+    let evRow=null;
+    const pay=w.days.find(isPayday);
+    if(evs.length||pay){
+      evRow=h('span',{class:'wk-evs'},
+        pay?h('span',{class:'ev ev-pay',text:`${PAY_LABEL} ${DN[pay.getDay()]}`}):null,
+        evs.slice(0,2).map(e=>chip(e)));
+      if(evs.length>2) evRow.append(h('span',{class:'ev ev-more',dir:'ltr',text:`+${evs.length-2}`}));
+    }
+    ul.append(h('li',null,h('button',{class:'wk '+stateOf(w),'data-w':String(w.n),onclick:()=>openWeek(w.n)},
+      h('span',{class:'wk-num',text:String(w.n)}),
+      h('span',{class:'wk-main'},
+        h('span',{class:'wk-name',text:'الأسبوع '+ORD[w.n-1]}),
+        h('span',{class:'wk-dates',text:rangeText(w.days[0],w.days[4])}),
+        evRow,
+        pv?h('span',{class:'wk-preview',text:pv}):null),
+      meta)));
+    if(w.n===13){const bp=paydayOf(2026,10); ul.append(h('li',{class:'brk-row'},h('span',null,'إجازة الخريف ',h('span',{class:'ev ev-pay',text:`${PAY_LABEL} ${DN[bp.getDay()]} ${bp.getDate()}`})),h('span',{text:'20 – 28 نوفمبر'})));}
+  });
+  return ul;
+}
+
+/* عرض التقويم الشهري */
+const MONTHS=[[2026,7],[2026,8],[2026,9],[2026,10],[2026,11],[2027,0]];
+const WD=['ح','ن','ث','ر','خ','ج','س'];
+const BRK_A=new Date(2026,10,20), BRK_B=new Date(2026,10,29);
+function isHijriFirst(d){
+  try{return !!hf&&hf.formatToParts(d).find(p=>p.type==='day').value==='1';}catch(e){return false;}
+}
+function calendarView(){
+  const box=h('div',{class:'cal'});
+  box.append(h('div',{class:'legend'},
+    h('span',null,h('i',{class:'lg-today'}),'اليوم'),
+    h('span',null,h('i',{class:'m-ev'}),'اختبار'),
+    h('span',null,h('i',{class:'m-note'}),'ملاحظة'),
+    h('span',null,h('i',{class:'lg-h1'},'1'),'بداية شهر هجري'),
+    h('span',null,h('i',{class:'lg-brk'}),'إجازة'),
+    h('span',null,h('i',{class:'lg-pay',text:'💰'}),'المكافأة')));
+  let year=null, grid=null;
+  MONTHS.forEach(([y,m])=>{
+    if(y!==year){
+      year=y;
+      box.append(h('div',{class:'yr'},h('b',{text:String(y)}),h('span',{text:'1448هـ'})));
+      grid=h('div',{class:'months'}); box.append(grid);
+    }
+    const first=new Date(y,m,1), count=new Date(y,m+1,0).getDate();
+    const g=h('div',{class:'mgrid'},WD.map(x=>h('span',{class:'wd','aria-hidden':'true',text:x})));
+    for(let i=0;i<first.getDay();i++) g.append(h('span'));
+    for(let dd=1;dd<=count;dd++){
+      const d=new Date(y,m,dd), k=dkey(d), wn=weekOfDate(d);
+      const exams=eventsOfDay(k).filter(e=>EXAM_TYPES.includes(e.type));
+      const note=(data.dayNotes[k]||[]).length>0;
+      const cls=['dc'];
+      if(k===TK) cls.push('today'); else if(d<today) cls.push('past');
+      if(d.getDay()>=5) cls.push('we');
+      if(d>=BRK_A&&d<BRK_B) cls.push('brk'); else if(!wn) cls.push('out');
+      if(isHijriFirst(d)) cls.push('h1');
+      const marks=h('span',{class:'marks'});
+      if(exams.length) marks.append(h('i',{class:'m-ev'}));
+      if(note) marks.append(h('i',{class:'m-note'}));
+      if(isPayday(d)) marks.append(h('i',{class:'m-pay','aria-hidden':'true',text:'💰'}));
+      const label=dayLabel(d)+(isPayday(d)?'، المكافأة':'')+(exams.length?'، '+exams.map(e=>`${e.course} ${e.title||TYPE_LABEL[e.type]}`).join('، '):'');
+      const kids=[h('span',{class:'n',text:String(dd)}),marks];
+      g.append(wn
+        ?h('button',{class:cls.join(' '),'aria-label':label,onclick:()=>openWeek(wn,k)},kids)
+        :h('span',{class:cls.join(' '),'aria-label':label},kids));
+    }
+    const isCur=today.getFullYear()===y&&today.getMonth()===m;
+    grid.append(h('section',{class:'month'+(isCur?' cur':'')},h('h3',{text:M[m]}),g));
+  });
+  return box;
+}
+
+/* عرض مواعيد الاختبارات */
+function examsView(){
+  const box=h('div',{class:'exams'});
+  [['quiz','الاختبارات القصيرة'],['midterm','الاختبارات الفصلية'],['final','الاختبارات النهائية']].forEach(([type,label])=>{
+    const items=EVENTS.filter(e=>e.type===type).map(e=>{
+      const d=e.date?parseKey(e.date):null;
+      const wks=d?[weekOfDate(d)].filter(Boolean):(Array.isArray(e.weeks)?e.weeks:(e.week?[e.week]:[]));
+      return {e,d,wks};
+    });
+    const key=x=>x.e.none?2e15:x.d?x.d.getTime():x.wks.length?WEEKS[x.wks[0]-1].start.getTime()+1:1e15;
+    items.sort((a,b)=>key(a)-key(b));
+    box.append(h('h2',{class:'ex-h',text:label}));
+    const ul=h('ul',{class:'exlist'});
+    items.forEach(({e,d,wks})=>{
+      const course=COURSES.find(c=>c.code===e.course);
+      let when, big, small, past=false, cd='';
+      if(d){
+        big=String(d.getDate()); small=M[d.getMonth()];
+        when=`${dayLabel(d)}، ${hijri(d)}`;
+        past=d<today; cd=past?'انتهى':inDays(Math.round((d-today)/864e5));
+      }else if(wks.length){
+        const a=WEEKS[wks[0]-1], z=WEEKS[wks[wks.length-1]-1];
+        big=wks.join('–'); small='الأسبوع';
+        when=(wks.length>1?`الأسبوعين ${wks.join(' و')}`:`الأسبوع ${ORD[wks[0]-1]}`)+`، ${rangeText(a.days[0],z.days[4])}`;
+        past=addDays(z.start,7)<=today;
+        cd=past?'انتهى':today>=a.start?'هذا الأسبوع':`يبدأ أسبوعه ${inDays(Math.round((a.start-today)/864e5))}`;
+      }else{
+        big=e.none?'—':'؟'; small='';
+        when=e.none?'ما فيه اختبار نهائي حسب الخطة':'الموعد غير معروف بعد';
+      }
+      const kids=[
+        h('span',{class:'ex-badge'},h('b',{text:big,class:big.length>3?'sm':null}),small?h('small',{text:small}):null),
+        h('span',{class:'ex-main'},
+          h('span',{class:'ex-course'},h('b',{text:e.course}),course?course.name:''),
+          h('span',{class:'ex-when',text:when}),
+          e.time?h('span',{class:'ex-when',text:e.time}):null,
+          e.note?h('span',{class:'ex-note',text:e.note}):null,
+          cd?h('span',{class:'ex-cd'+(past?' done':''),text:cd}):null)];
+      const cls='ex'+(past?' past':'')+(type==='final'?' fin':'')+(type==='quiz'?' qz':'')+(wks.length?'':' tbd');
+      ul.append(h('li',null,wks.length
+        ?h('button',{class:cls,onclick:()=>openWeek(wks[0],d?dkey(d):null)},kids)
+        :h('div',{class:cls},kids)));
+    });
+    box.append(ul);
+  });
+  box.append(h('p',{class:'ex-foot',text:'المواعيد اللي ما عندها تاريخ محدد تظهر على مستوى أسبوعها، وتتحدث أول ما يُعلن اليوم.'}));
+  return box;
+}
+
+let lastWeek=null;
+function renderHome(){
+  const root=document.getElementById('home');
+  root.innerHTML='';
+  const wrap=h('div',{class:'wrap'});
+  wrap.append(
+    h('h1',{class:'title',text:'الترم الأول 1448هـ'}),
+    h('p',{class:'sub',text:'من 23 أغسطس 2026 إلى 7 يناير 2027'})
+  );
+
+  const strip=h('div',{class:'strip'});
+  WEEKS.forEach(w=>{
+    const b=h('button',{class:'seg '+stateOf(w),'aria-label':'الأسبوع '+ORD[w.n-1],onclick:()=>openWeek(w.n)});
+    if(eventsOfWeek(w.n).length) b.append(h('span',{class:'cap'}));
+    if(hasNotes(w)||taskCounts(w)[1]) b.append(h('span',{class:'dot'}));
+    strip.append(b);
+    if(w.n===13) strip.append(h('span',{class:'seg brk',title:'إجازة الخريف'}));
+  });
+  wrap.append(strip,h('div',{class:'strip-ends'},h('span',{text:'الأسبوع 1'}),h('span',{text:'الأسبوع 19'})));
+
+  if(cur){
+    const left=19-cur.n;
+    wrap.append(h('button',{class:'now-line',onclick:()=>openWeek(cur.n)},
+      'أنتِ في ',h('strong',{text:'الأسبوع '+ORD[cur.n-1]}),
+      left?`، وبعده ${weeksWord(left)}`:'، آخر أسبوع في الترم'));
+  }else if(inBreak){
+    wrap.append(h('p',{class:'now-line'},'أنتِ في ',h('strong',{text:'إجازة الخريف'}),'، والدراسة ترجع 29 نوفمبر'));
+  }else if(today<WEEKS[0].start){
+    wrap.append(h('p',{class:'now-line',text:'الدراسة تبدأ 23 أغسطس'}));
+  }else{
+    wrap.append(h('p',{class:'now-line',text:'خلص الترم الأول'}));
+  }
+
+  const nx=nextEvent();
+  if(nx){
+    const when=nx.d
+      ?`${dayLabel(nx.d)}، ${inDays(Math.round((nx.d-today)/864e5))}`
+      :`الأسبوع ${ORD[nx.wk-1]}`;
+    wrap.append(h('button',{class:'next',onclick:()=>openWeek(nx.wk)},
+      h('small',{text:'أقرب موعد'}),
+      h('span',{class:'what',text:`${nx.course}: ${nx.title||TYPE_LABEL[nx.type]||TYPE_LABEL.other}`}),
+      h('span',{class:'when',text:when})));
+  }
+
+  const pd=nextPayday(), pdW=weekOfDate(pd);
+  const pdKids=[h('b',{text:PAY_LABEL}),` ${dayLabel(pd)}، ${inDays(Math.round((pd-today)/864e5))}`];
+  wrap.append(pdW
+    ?h('button',{class:'pay-line',onclick:()=>openWeek(pdW,dkey(pd))},pdKids)
+    :h('p',{class:'pay-line'},pdKids));
+
+  const VIEWS=[['weeks','الأسابيع'],['calendar','التقويم'],['exams','مواعيد الاختبارات']];
+  wrap.append(h('div',{class:'tabs',role:'tablist'},VIEWS.map(([id,label])=>h('button',{
+    class:'tab'+(id===VIEW?' on':''),role:'tab','aria-selected':String(id===VIEW),
+    onclick:()=>{
+      if(id===VIEW) return;
+      VIEW=id; if(store) store.set(id,VIEW_KEY);
+      renderHome();
+      const t=document.querySelector('.tabs'); if(t&&window.scrollY>t.offsetTop) t.scrollIntoView({block:'start'});
+    }},label))));
+  wrap.append(VIEW==='calendar'?calendarView():VIEW==='exams'?examsView():weeksView());
+
+  /* الذيل: المواد، الحفظ، النسخ الاحتياطي */
+  const foot=h('div',{class:'foot'});
+  foot.append(h('h2',{text:'المواد'}),
+    h('ul',{class:'courses'},COURSES.map(c=>h('li',null,h('b',{text:c.code}),
+      h('span',null,c.name,courseDays(c.code)?h('span',{class:'days',text:courseDays(c.code)}):null)))));
+
+  foot.append(h('h2',{text:'حسابك'}));
+  if(account){
+    foot.append(h('div',{class:'acct'},
+      h('span',{class:'who'},h('b',{text:account.name||'طالبة'}),h('span',{text:account.email||''})),
+      h('button',{class:'btn',onclick:()=>window.CLOUD.signOut()},'تسجيل الخروج')));
+  }
+  foot.append(h('p',{text:'ملاحظاتك ومهامك محفوظة في حسابك، وتلقينها على أي جهاز تسجلين فيه بنفس حساب Google.'}));
+  const fileIn=h('input',{type:'file',accept:'.json,application/json',hidden:true});
+  fileIn.addEventListener('change',()=>{if(fileIn.files[0]) importData(fileIn.files[0]); fileIn.value='';});
+  foot.append(h('div',{class:'row'},
+    h('button',{class:'btn',onclick:exportData},'تنزيل نسخة احتياطية'),
+    h('button',{class:'btn',onclick:()=>fileIn.click()},'استرجاع نسخة'),
+    fileIn));
+
+  const resetLabel='مسح كل ملاحظاتي ومهامي';
+  const reset=h('button',{class:'btn plain danger',text:resetLabel});
+  let armed=false,tm;
+  reset.addEventListener('click',()=>{
+    if(!armed){armed=true;reset.textContent='اضغطي مرة ثانية للتأكيد';tm=setTimeout(()=>{armed=false;reset.textContent=resetLabel;},4000);return;}
+    clearTimeout(tm);
+    adopt({}); save(); renderHome();
+  });
+  foot.append(reset);
+  wrap.append(foot);
+  root.append(wrap);
+}
+
+function exportData(){
+  try{
+    const blob=new Blob([JSON.stringify(data)],{type:'application/json'});
+    const a=h('a',{href:URL.createObjectURL(blob),download:'semester-1448-backup.json'});
+    document.body.append(a); a.click();
+    setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},1500);
+  }catch(e){toast('ما قدرت أنزّل الملف من هذا المتصفح',true);}
+}
+function importData(file){
+  const r=new FileReader();
+  r.onload=()=>{
+    try{
+      const p=JSON.parse(r.result);
+      if(!p||typeof p!=='object'||!('weekNotes' in p||'dayNotes' in p||'weekTasks' in p)) throw 0;
+      adopt(p); save(); renderHome(); toast('تم استرجاع النسخة');
+    }catch(e){toast('الملف غير صالح، اختاري ملف النسخة الاحتياطية',true);}
+  };
+  r.readAsText(file);
+}
+
+/* صفحة الأسبوع */
+let homeScroll=0;
+function openWeek(n,dayK){
+  lastWeek=n;
+  if(!document.getElementById('home').hidden) homeScroll=window.scrollY;
+  renderWeek(n);
+  document.getElementById('home').hidden=true;
+  const wk=document.getElementById('week');
+  wk.hidden=false;
+  wk.classList.remove('enter'); void wk.offsetWidth; wk.classList.add('enter');
+  window.scrollTo(0,0);
+  if(dayK){
+    const el=wk.querySelector(`.day[data-k="${dayK}"]`);
+    if(el){
+      const det=el.closest('details'); if(det&&!det.open) det.open=true;
+      el.classList.add('flash');
+      requestAnimationFrame(()=>el.scrollIntoView({block:'start'}));
+    }
+  }
+}
+function goHome(){
+  renderHome();
+  document.getElementById('week').hidden=true;
+  document.getElementById('home').hidden=false;
+  requestAnimationFrame(()=>window.scrollTo(0,homeScroll));
+}
+
+function dayCard(d,weekN){
+  const k=dkey(d), isT=k===TK, past=d<today, evs=eventsOfDay(k);
+  const classes=(weekN<=LAST_CLASS_WEEK&&TAGS[k]!=='اليوم الوطني')?(SCHEDULE[d.getDay()]||[]):[];
+  const nbox=h('div',{class:'daynotes'});
+  checklist(nbox,{
+    compact:true,
+    placeholder:'ملاحظة لهذا اليوم',
+    itemLabel:'ملاحظة '+dayLabel(d),
+    get:()=>data.dayNotes[k]||(data.dayNotes[k]=[]),
+    set:l=>{ if(l.length) data.dayNotes[k]=l; else delete data.dayNotes[k]; }
+  });
+  return h('div',{class:'day'+(isT?' today':'')+(past&&!isT?' past':''),'data-k':k},
+    h('div',{class:'day-date'},h('b',{text:String(d.getDate())}),h('span',{text:M[d.getMonth()]})),
+    h('div',null,
+      h('div',{class:'day-top'},
+        h('span',{class:'day-name',text:DN[d.getDay()]}),
+        h('span',{class:'day-hijri',text:hijri(d)}),
+        isT?h('span',{class:'tag today',text:'اليوم'}):null,
+        isPayday(d)?h('span',{class:'tag pay',text:PAY_LABEL}):null,
+        TAGS[k]?h('span',{class:'tag',text:TAGS[k]}):null),
+      classes.length?h('ul',{class:'cls','aria-label':'المحاضرات'},classes.map(c=>h('li',null,
+        h('span',{class:'tm',text:c.time}),h('b',{text:c.course}),h('span',{text:c.place+(c.teacher?`، ${c.teacher}`:'')})))):null,
+      evs.length?h('div',{class:'day-evs'},evs.map(e=>chip(e))):null,
+      nbox));
+}
+
+/* قائمة قابلة للتعليم: تُستخدم للمهام وللملاحظات */
+function checklist(box,opts){
+  const render=()=>{
+    box.innerHTML='';
+    const list=opts.get();
+    const upd=()=>{
+      if(!opts.counter) return;
+      const d=list.filter(t=>t.done).length;
+      opts.counter.textContent=list.length?`${d} من ${list.length}`:'';
+    };
+    if(list.length){
+      const ul=h('ul',{class:'tasks'+(opts.compact?' mini':'')});
+      list.forEach(t=>{
+        const cb=h('input',{type:'checkbox','aria-label':'تم'}); cb.checked=!!t.done;
+        const tx=h('input',{class:'txt',type:'text','aria-label':opts.itemLabel||'نص'}); tx.value=t.text;
+        const li=h('li',{class:'task'+(t.done?' done':'')},cb,
+          t.course?h('span',{class:'code',text:t.course}):null,
+          tx,
+          h('button',{class:'del','aria-label':'حذف',onclick:()=>{
+            list.splice(list.indexOf(t),1); opts.set(list); save(); render();
+          }},'✕'));
+        cb.addEventListener('change',()=>{t.done=cb.checked;li.classList.toggle('done',t.done);upd();opts.set(list);save();});
+        tx.addEventListener('input',()=>{
+          t.text=tx.value;
+          if(!tx.value.trim()&&!t.text.trim()) {}
+          opts.set(list); save();
+        });
+        ul.append(li);
+      });
+      box.append(ul);
+    }
+    const inp=h('input',{type:'text',placeholder:opts.placeholder,'aria-label':opts.placeholder,enterkeyhint:'done'});
+    const sel=opts.courses?h('select',{'aria-label':'المادة'},
+      h('option',{value:''},'بدون مادة'),
+      COURSES.map(c=>h('option',{value:c.code},`${c.code}  ${c.name}`))):null;
+    if(sel&&box._course) sel.value=box._course;
+    const add=()=>{
+      const v=inp.value.trim(); if(!v) return;
+      const it=newItem(v);
+      if(sel){ box._course=sel.value; if(sel.value) it.course=sel.value; }
+      list.push(it); opts.set(list); save(); render();
+      const next=box.querySelector('.add input'); if(next) next.focus();
+    };
+    inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();add();}});
+    box.append(h('div',{class:'add'+(opts.compact?' mini':'')+(sel?' with-course':'')},
+      inp,sel,h('button',{class:'btn'+(opts.compact?' ghost':' primary'),onclick:add},opts.compact?'+':'إضافة')));
+    upd();
+  };
+  render();
+}
+
+function renderWeek(n){
+  const w=WEEKS[n-1];
+  const root=document.getElementById('week');
+  root.innerHTML='';
+  root.append(h('div',{class:'bar'},h('div',{class:'bar-in'},
+    h('button',{class:'btn plain back',onclick:goHome},'كل الأسابيع'),
+    h('button',{class:'btn',disabled:n===1,onclick:()=>openWeek(n-1)},'السابق'),
+    h('button',{class:'btn',disabled:n===19,onclick:()=>openWeek(n+1)},'التالي'))));
+
+  const wrap=h('div',{class:'wrap'});
+  wrap.append(h('header',{class:'wk-head'+(stateOf(w)==='now'?' now':'')},
+    h('span',{class:'big',text:String(n)}),
+    h('div',null,
+      h('h1',{text:'الأسبوع '+ORD[n-1]}),
+      h('p',{text:rangeText(w.days[0],w.days[4],true)}),
+      h('p',{class:'h',text:hrange(w.days[0],w.days[4])}),
+      n===14?h('p',{class:'h',text:'أول أسبوع بعد إجازة الخريف'}):null)));
+
+  const evs=eventsOfWeek(n);
+  if(evs.length){
+    wrap.append(h('section',{class:'blk'},h('h2',null,'مواعيد المواد'),
+      h('ul',{class:'evlist'},evs.map(e=>h('li',null,
+        whenText(e)?h('span',{class:'when',text:whenText(e)}):null,
+        chip(e),
+        e.note?h('span',{class:'note',text:e.note}):null)))));
+  }
+
+  const nCounter=h('small');
+  const nbox=h('div');
+  wrap.append(h('section',{class:'blk'},h('h2',null,'ملاحظات الأسبوع',nCounter),nbox));
+  checklist(nbox,{
+    counter:nCounter,
+    placeholder:'اللي يخص الأسبوع كامل، مثل: موعد مذاكرة جماعية',
+    itemLabel:'ملاحظة الأسبوع',
+    get:()=>data.weekNotes[n]||(data.weekNotes[n]=[]),
+    set:l=>{ if(l.length) data.weekNotes[n]=l; else delete data.weekNotes[n]; }
+  });
+
+  const counter=h('small');
+  const tbox=h('div');
+  wrap.append(h('section',{class:'blk'},h('h2',null,'مهام الأسبوع',counter),tbox));
+  checklist(tbox,{
+    counter:counter,
+    courses:true,
+    placeholder:'أضيفي مهمة، مثل: حل تمارين الفصل الثاني',
+    itemLabel:'نص المهمة',
+    get:()=>data.weekTasks[n]||(data.weekTasks[n]=[]),
+    set:l=>{ data.weekTasks[n]=l; }
+  });
+
+  const days=h('section',{class:'blk'},h('h2',null,'الأيام'));
+  w.days.slice(0,5).forEach(d=>days.append(dayCard(d,n)));
+  const wkend=w.days.slice(5);
+  const det=h('details',{class:'weekend'},h('summary',null,`الجمعة والسبت (${wkend[0].getDate()} و ${wkend[1].getDate()} ${M[wkend[1].getMonth()]})`));
+  wkend.forEach(d=>det.append(dayCard(d,n)));
+  if(wkend.some(d=>noteOf(d).length||dkey(d)===TK||eventsOfDay(dkey(d)).length)) det.open=true;
+  days.append(det);
+  wrap.append(days);
+  root.append(wrap);
+}
+
+/* ===== شاشة تسجيل الدخول وبدء التطبيق ===== */
+const G_ICON='<svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45 24c0-1.6-.1-2.7-.4-3.9H24v7.1h12c-.2 1.8-1.5 4.6-4.4 6.4l6.7 5.2C42.2 35.1 45 30 45 24z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-6.9-5.3c-1.8 1.3-4.3 2.2-7.6 2.2-5.8 0-10.7-3.8-12.5-9.1l-7.1 5.5C8.1 41.1 15.5 46 24 46z"/><path fill="#FBBC05" d="M11.5 28.5c-.5-1.4-.7-2.9-.7-4.5s.3-3.1.7-4.5l-7.1-5.5C2.9 17 2 20.4 2 24s.9 7 2.4 10z"/><path fill="#EA4335" d="M24 9.5c4.1 0 6.9 1.8 8.5 3.3l6.2-6C34.9 3.4 29.9 1 24 1 15.5 1 8.1 5.9 4.4 14l7.1 5.5C13.3 13.3 18.2 9.5 24 9.5z"/></svg>';
+let gateErr='';
+function showGate(){
+  const g=document.getElementById('gate');
+  document.getElementById('home').hidden=true;
+  document.getElementById('week').hidden=true;
+  g.hidden=false;
+  g.innerHTML='';
+  const btn=h('button',{class:'gbtn'});
+  btn.innerHTML=G_ICON+'<span>الدخول بحساب Google</span>';
+  btn.addEventListener('click',async()=>{
+    btn.disabled=true; btn.querySelector('span').textContent='جاري فتح نافذة Google…';
+    const r=await window.CLOUD.signIn();
+    if(!r.ok){ gateErr=r.error||''; showGate(); }
+    else if(!r.redirect){ btn.querySelector('span').textContent='جاري الدخول…'; }
+  });
+  const card=h('div',{class:'gate-card'},
+    h('h1',{text:'تقويم الترم الأول 1448هـ'}),
+    h('p',{text:'سجّلي الدخول عشان ملاحظاتك ومهامك تنحفظ وتلقينها على أي جهاز.'}),
+    gateErr?h('p',{class:'gate-err',text:gateErr}):null,
+    btn,
+    h('ul',{class:'gate-feat'},
+      h('li',null,h('b',null,'• '),'مواعيد الاختبارات والتسليمات لكل المواد'),
+      h('li',null,h('b',null,'• '),'ملاحظات لكل يوم ولكل أسبوع، ومهام مع علامة إنجاز'),
+      h('li',null,h('b',null,'• '),'بياناتك خاصة فيك، وما تشوفها الطالبات الثانيات')));
+  g.append(h('div',{class:'wrap'},card,
+    h('p',{class:'gate-note',text:'إذا ما فتحت نافذة Google، افتحي الرابط في Safari أو Chrome بدل متصفح الواتساب.'})));
+  gateErr='';
+  window.scrollTo(0,0);
+}
+function showLoading(txt){
+  document.getElementById('gate').hidden=true;
+  document.getElementById('week').hidden=true;
+  const home=document.getElementById('home');
+  home.hidden=false;
+  home.innerHTML='<div class="wrap"><p class="sub">'+(txt||'جاري التحميل…')+'</p></div>';
+}
+async function startApp(acct){
+  account=acct;
+  showLoading('جاري تحميل ملاحظاتك…');
+  store=makeStore();
+  await load();
+  const empty=!Object.keys(data.weekNotes).length&&!Object.keys(data.dayNotes).length&&!Object.keys(data.weekTasks).length;
+  if(empty&&LOCAL){
+    try{
+      const old=LOCAL.getItem(KEY);
+      if(old){ adopt(JSON.parse(old)); await store.set(JSON.stringify(data)); toast('نقلنا ملاحظاتك القديمة لحسابك'); }
+    }catch(e){}
+  }
+  const v=await store.get(VIEW_KEY);
+  if(['weeks','calendar','exams'].includes(v)) VIEW=v;
+  renderHome();
+}
+window.addEventListener('cloud-loading',()=>showLoading('جاري تسجيل الدخول…'));
+window.addEventListener('cloud-error',e=>{gateErr=e.detail||'';});
+function applyAuth(st){ st?startApp(st):showGate(); }
+window.addEventListener('cloud-auth',e=>applyAuth(e.detail));
+showLoading('جاري التحقق من تسجيل الدخول…');
+if(window.CLOUD&&window.CLOUD.state!==undefined) applyAuth(window.CLOUD.state);
+setTimeout(()=>{ if(!window.CLOUD){ gateErr='ما قدرنا نحمّل خدمة تسجيل الدخول. تأكدي من الإنترنت وحدّثي الصفحة.'; showGate(); } },9000);
+})();
+</script>
+</body>
+</html>
